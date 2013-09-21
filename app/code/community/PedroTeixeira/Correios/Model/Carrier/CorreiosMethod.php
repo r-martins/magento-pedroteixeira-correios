@@ -149,6 +149,7 @@ class PedroTeixeira_Correios_Model_Carrier_CorreiosMethod
         
     }
 
+
     /**
      * Get shipping quote
      * 
@@ -276,6 +277,12 @@ class PedroTeixeira_Correios_Model_Carrier_CorreiosMethod
     protected function _getCorreiosReturn(){
 
         $filename = $this->getConfigData('url_ws_correios');
+        $use_freteco = false;
+        if(Mage::getStoreConfig('carriers/pedroteixeira_correios/freteco_enabled') && Mage::getStoreConfig('carriers/pedroteixeira_correios/freteco_apikey')){
+            $filename = $this->getConfigData('url_ws_freteco');
+            $use_freteco = true;
+        }
+
         $contratoCodes = explode(",", $this->getConfigData('contrato_codes'));
         
         try {
@@ -285,6 +292,9 @@ class PedroTeixeira_Correios_Model_Carrier_CorreiosMethod
             ));
 
             $client->setParameterGet('StrRetorno', 'xml');
+            if($use_freteco){
+                $client->setParameterGet('format', 'xml');
+            }
             $client->setParameterGet('nCdServico', $this->_postMethods);
 
             if($this->_volumeWeight > $this->getConfigData('volume_weight_min') && $this->_volumeWeight > $this->_packageWeight){
@@ -337,6 +347,7 @@ class PedroTeixeira_Correios_Model_Carrier_CorreiosMethod
             }
 
             $content = $client->request()->getBody();
+Mage::log(var_export($content,true),null, 'martins.log',true);
 
             if ($content == ""){
                 throw new Exception("No XML returned [" . __LINE__ . "]");
@@ -687,7 +698,7 @@ class PedroTeixeira_Correios_Model_Carrier_CorreiosMethod
      *
      * @return boolean
      */
-    public function isZipCodeRequired()
+    public function isZipCodeRequired($countryId = null)
     {
         return true;
     }

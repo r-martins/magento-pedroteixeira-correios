@@ -322,7 +322,27 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </sort_order>                       
+                        </sort_order>
+                        <freteco_enabled translate="label">
+                            <label>Utilizar Frete.co</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>280</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Utilizar o serviço do <a href="http://frete.co/" target="blank">http://frete.co/</a> ao invés de utilizar o Webservice dos correios? O Frete.co é bem mais estável.]]></comment>
+                        </freteco_enabled>
+                        <freteco_apikey translate="label">
+                            <label>ApiKey Frete.co</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>290</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Pegue uma chave gratuita em <a href="http://frete.co/" target="blank">http://frete.co/</a>.]]></comment>
+                            <depends><freteco_enabled>1</freteco_enabled></depends>
+                        </freteco_apikey>
                     </fields>
                 </pedroteixeira_correios>
             </groups>
