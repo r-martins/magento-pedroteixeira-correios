@@ -1,0 +1,84 @@
+﻿---------------------------------------------------------------------
+---------------------------------------------------------------------
+-------------- Módulo de frete para Magento utilizando --------------
+-------------- os Correios.                            --------------
+--------------                                         --------------
+-------------- Desenvolvido por Pedro Teixeira         --------------
+-------------- www.pteixeira.com.br                    --------------
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+
+VERSÃO 4.2
+
+- Utilizando peso volumétrico para todos os serviços
+- Retirada a URL de cálculo da Locaweb
+- Possibilidade de limitar as dimensões dos produtos
+- Timeout dos Correios reduzido para ficar compatível
+com o timeout do banco
+- Modificada a quebra de linha para formato Linux
+- Retirando "ponto" do CEP
+
+VERSÃO 4.1
+
+- Nova estrutura do Model, facilitando o entendimento e manutenção
+- Nova forma de passar o volume do PAC para os Correios
+- Novos filtros para evitar erros na interface
+- Nomes dos métodos, URL dos Correios, prazo de entrega e outros
+  parâmetros configurados no xml
+- Integração total com as regras de frete grátis utilizando a função
+  _setFreeMethodRequest()
+- Logs mais completos para identificação de possíveis problemas
+- Desconsiderando duplicidade de produtos configuráveis no cálculo
+  do volume do PAC
+- Corrigido problema com a função depreciada slipt()
+- Sedex a cobrar mostra o valor do frete na mensagem e deixa
+  como gratuito
+- Corrigido mensagem de erro de peso e valor de "a cima" para "acima"
+- Realiza apenas uma consulta ao webservice para todos os serviços
+
+VERSÃO 4.0
+
+– Nova forma de passar o volume para os Correios
+– Problema do getBody() tratado
+– Problema com o ereg() corrigido
+– Problema de “The locale ‘root’ is no known locale” corrigido
+– Correção do tracking
+– Sedex a Cobrar implementado
+– Instalação automática dos atributos de volume
+– Log de erros
+– Configuração do formato de peso
+– Novas mensagens de erro
+
+VERSÃO 3.1
+
+- Verificação de erros gerados pelos Correios
+- Opção de desconsiderar determinados erros dos Correios
+- Nova maneira de calcular o volume para o PAC
+- Correção do problema de valor declarado
+- Configuração de Mão Própria
+- Configuração de Aviso de Recebimento
+- Configuração de Valor Declarado
+- Possibilidade de adicionar mais dias ao prazo dos Correios
+
+VERSÃO 3
+
+- Utilizando a nova URL de cálculo dos Correios e da Locaweb
+- Utilizando o volume para cálculo de PAC
+- Opção de volume padrão caso o produto não tenha no cadastro
+- Captação do prazo de entrega pela URL dos Correios
+- Integração dos serviços com necessitam contrato direto com os
+Correios
+- Utilizando SOAP para acessar o cálculo via Locaweb
+
+VERSÃO 2.1
+
+- Módulo utilizando ao invés do CURL a biblioteca do Framework Zend
+  Zend_Http_Client
+
+VERSÃO 2
+
+- Módulo com tracking e utilizando a biblioteca CURL
+
+VERSÃO 1
+
+- Cálculo do frete via site dos Correios ou Locaweb
