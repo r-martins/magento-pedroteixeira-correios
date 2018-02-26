@@ -1,4 +1,8 @@
-﻿---------------------------------------------------------------------
+# Desatualizado
+Este módulo não é a versão mais recente.
+Veja o módulo oficial em https://github.com/pedro-teixeira/correios/
+
+---------------------------------------------------------------------
 ---------------------------------------------------------------------
 -------------- Módulo de frete para Magento utilizando --------------
 -------------- os Correios.                            --------------
